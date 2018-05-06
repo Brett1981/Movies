@@ -23,20 +23,20 @@ export class MovieService {
     var body = JSON.stringify(movie);
     var headerOptions = new Headers({ 'Content-Type': 'application/json' });
     var requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
-    return this.http.post('http://localhost:54700/api/Movies', body, requestOptions).map(x => x.json());
+    return this.http.post('http://41.185.94.19:54000/api/Movies', body, requestOptions).map(x => x.json());
   }
 
   putMovie(id, movie) {
     var body = JSON.stringify(movie);
     var headerOptions = new Headers({ 'Content-Type': 'application/json' });
     var requestOptions = new RequestOptions({ method: RequestMethod.Put, headers: headerOptions });
-    return this.http.put('http://localhost:54700/api/Movies/' + id,
+    return this.http.put('http://41.185.94.19:54000/api/Movies/' + id,
       body,
       requestOptions).map(x => x.json());
   }
 
   getMovieList() {
-    this.http.get('http://localhost:54700/api/Movies')
+    this.http.get('http://41.185.94.19:54000/api/Movies')
       .map((data: Response) => {
         return data.json() as Movie[];
       }).toPromise().then(x => {
@@ -45,11 +45,11 @@ export class MovieService {
   }
 
   deleteMovie(id: number) {
-    return this.http.delete('http://localhost:54700/api/Movies/' + id).map(res => res.json());
+    return this.http.delete('http://41.185.94.19:54000/api/Movies/' + id).map(res => res.json());
   }
 
   getMovieRank(){
-    this.http.get('http://localhost:54700/api/MovieRanking')
+    this.http.get('http://41.185.94.19:54000/api/MovieRanking')
       .map((data: Response) => {
         return data.json() as RankCount[];
       }).toPromise().then(x => {

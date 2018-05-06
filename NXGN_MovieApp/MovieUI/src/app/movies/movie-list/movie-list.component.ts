@@ -28,6 +28,7 @@ export class MovieListComponent implements OnInit {
       this.movieService.deleteMovie(id)
         .subscribe(x => {
           this.movieService.getMovieList();
+          this.movieService.getMovieRank();
           this.toastr.warning('Deleted successfully', 'Entertainment');
         })
     }
