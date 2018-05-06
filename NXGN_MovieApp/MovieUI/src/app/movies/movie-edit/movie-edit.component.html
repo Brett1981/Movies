@@ -15,7 +15,7 @@
   </div>
   <div class="form-group">
     <label for="">Movie Ranking</label>
-    <select class="form-control" name="Rank" #Rank="ngModel" [(ngModel)]="movieService.selectedMovie.Rank">
+    <select class="form-control" name="Rank" #Rank="ngModel" [(ngModel)]="movieService.selectedMovie.Rank" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
