@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntertainmentModelStoreContainer" CdmEntityContainer="EntertainmentEntities">
+    <EntitySetMapping Name="Movies">
+      <EntityTypeMapping TypeName="EntertainmentModel.Movie">
+        <MappingFragment StoreEntitySet="Movie">
+          <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="CREATE_TIMESTAMP" ColumnName="CREATE_TIMESTAMP" />
+          <ScalarProperty Name="LAST_UPDATE_TIMESTAMP" ColumnName="LAST_UPDATE_TIMESTAMP" />
+          <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sps_GetMovieRanking" FunctionName="EntertainmentModel.Store.sps_GetMovieRanking">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntertainmentModel.sps_GetMovieRanking_Result">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

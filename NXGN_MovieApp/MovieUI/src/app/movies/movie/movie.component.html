@@ -1,0 +1,40 @@
+<form class="emp-form" #movieForm="ngForm" (ngSubmit)="onSubmit(movieForm)" *ngIf="movieService.visibilityAdd">
+  <h1>Add Movie</h1>
+  <div class="form-group">
+    <label for="">Movie Title</label>
+    <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="movieService.selectedMovie.Name" placeholder="Enter movie title"
+      required>
+    <div class="validation-error" *ngIf="Name.invalid && Name.touched">This field is required</div>
+  </div>
+  <div class="form-group">
+    <label for="">Movie Category</label>
+    <input class="form-control" name="Category" #Category="ngModel" [(ngModel)]="movieService.selectedMovie.Category" placeholder="Enter movie category"
+      required>
+    <div class="validation-error" *ngIf="Category.invalid && Category.touched">This field is required</div>
+  </div>
+  <div class="form-group">
+    <label for="">Movie Ranking</label>
+      <select class="form-control" name="Rank" #Rank="ngModel" [(ngModel)]="movieService.selectedMovie.Rank">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+      </select>
+    <div class="validation-error" *ngIf="Rank.invalid && Rank.touched">This field is required</div>
+  </div>
+  <div class="form-row">
+    <div class="from-group col-md-4">
+      <button [disabled]="!movieForm.valid" type="submit" class="btn btn-block btn-lg btn-info">
+        <i class="fa fa-floppy-o"></i> Save Movie</button>
+    </div>
+    <div class="from-group col-md-4">
+      <button type="button" class="btn btn-block btn-lg btn-secondary" (click)=resetForm(movieForm)>
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+    <div class="from-group col-md-4">
+      <button type="button" class="btn btn-block btn-lg btn-danger" (click)=onNavigate()>
+        <i class="fa fa-close"></i> Cancel</button>
+    </div>
+  </div>
+</form>

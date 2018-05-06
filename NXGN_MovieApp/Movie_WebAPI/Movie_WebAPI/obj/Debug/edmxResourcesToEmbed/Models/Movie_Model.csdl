@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntertainmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EntertainmentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Movies" EntityType="EntertainmentModel.Movie" />
+    <FunctionImport Name="sps_GetMovieRanking" ReturnType="Collection(EntertainmentModel.sps_GetMovieRanking_Result)" />
+  </EntityContainer>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="DELETED" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_UPDATE_TIMESTAMP" Type="DateTime" Precision="0" />
+    <Property Name="CREATE_TIMESTAMP" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="MODIFIED_BY" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="sps_GetMovieRanking_Result">
+    <Property Type="Int32" Name="Rank" Nullable="true" />
+    <Property Type="Int32" Name="Count" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,27 @@
+<div *ngIf="movieService.visibilityRating">
+  <div class="form-row">
+    <div class="from-group col-md-6">
+      <button type="button" class="btn btn-block btn-lg btn-info" (click)="onNavigate()">
+        <i class="fa fa-list"></i> Back to Movie List </button>
+    </div>
+    <div class="from-group col-md-6">
+    </div>
+  </div>
+  <br/>
+  <h1>Movie Ratings Count</h1>
+  <br/>
+  <table class="table table-sm table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Count of Movies</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of movieService.groupedList">
+        <td>{{group.Rank}}</td>
+        <td>{{group.Count}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

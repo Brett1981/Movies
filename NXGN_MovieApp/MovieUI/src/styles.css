@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+form.emp-form{
+    background-color: beige;
+    border-radius: 4px;
+    padding: 10px
+}
+div.validation-error{
+    color: red
+}

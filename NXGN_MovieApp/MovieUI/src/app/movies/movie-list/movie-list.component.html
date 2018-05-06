@@ -1,0 +1,42 @@
+<div *ngIf="movieService.visibilityList">
+  <div class="form-row">
+    <div class="from-group col-md-6">
+      <button type="button" class="btn btn-block btn-lg btn-info" (click)="onNavigate()">
+        <i class="fa fa-film"></i> Add New Movie </button>
+    </div>
+    <div class="from-group col-md-6">
+      <button type="button" class="btn btn-block btn-lg btn-success" (click)="onRating()">
+        <i class="fa fa-film"></i> Movie Rating </button>
+    </div>
+  </div>
+  <br/>
+  <div class="col-md-8">
+    <input class="form-control" type="text" id="searchTextId" [(ngModel)]="searchText" name="searchText" placeholder="Search">
+  </div>
+  <br/>
+  <table class="table table-sm table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Rank</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movieService.movieList | searchfilter: searchText">
+        <td>{{movie.Name}}</td>
+        <td>{{movie.Category}}</td>
+        <td>{{movie.Rank}}</td>
+        <td>
+          <a class="btn" (click)="showForEdit(movie)">
+            <i class="fa fa-pencil-square-o"></i>
+          </a>
+          <a class="btn text-danger" (click)="onDelete(movie.ID)">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
